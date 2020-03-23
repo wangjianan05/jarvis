@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-28 14:54:47
- * @LastEditTime: 2019-08-29 15:36:27
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-10 17:07:00
+ * @LastEditors  : Please set LastEditors
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -43,6 +43,11 @@ export default new Router({
           path: '/addCol',
           name: 'addCol',
           component: () => import(/* webpackChunkName: "about" */ './views/addCol.vue')
+        },
+        {
+          path: '/menus',
+          name: 'menus',
+          component: () => import(/* webpackChunkName: "about" */ './views/menus.vue')
         }
       ]
     }

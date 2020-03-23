@@ -1,9 +1,9 @@
 <!--
- * @Description: 微服务管理
+ * @Description: 主页
  * @Author: your name
  * @Date: 2019-07-16 18:21:04
- * @LastEditTime: 2019-08-29 15:36:51
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-17 14:33:01
+ * @LastEditors  : Please set LastEditors
  -->
 <template>
   <div class="body">
@@ -11,10 +11,10 @@
       <div class="menuCards">
         <ul class="feature-list">
           <li v-for="(card,idx) in cardsData" :key="idx">
-            <router-link :to="card.router">
+            <router-link :to="card.url">
               <div class="card-box">
               <div class="icon-custom icon-c">
-                <i :class="card.icon"></i>
+                <i :class="icon[idx].icon"></i>
               </div>
               <div class="column-title">{{card.name}}</div>
             </div>
@@ -31,26 +31,17 @@
 export default {
   data () {
     return {
-      cardsData:[{
-        name:'删除大值',
-        icon:'iconfont iconiconfontshanchu',
-        router:'/delMax'
+      cardsData:[],
+      icon:[{
+        icon:'iconfont iconiconfontshanchu'
       },{
-        name:'添加采集器',
-        icon:'iconfont icontianjia',
-        router:'/addCol'
+        icon:'iconfont icontianjia'
       },{
-        name:'demo',
-        icon:'iconfont icontianjia',
-        router:''
+        icon:'iconfont icontianjia'
       },{
-        name:'demo',
-        icon:'iconfont icontianjia',
-        router:''
+        icon:'iconfont icontianjia'
       },{
-        name:'demo',
-        icon:'iconfont icontianjia',
-        router:''
+        icon:'iconfont icontianjia'
       }]
     }
   },
@@ -58,13 +49,50 @@ export default {
 
   computed: {},
 
-  created () {},
+  created () {
+    this.getNav()
+  },
 
   mounted () {
 
   },
 
   methods: {
+    getNav(){
+      let _this = this
+      var obj = {
+        params: {
+        },
+        url: this.$urlConfig.nav
+
+      }
+      this.$api.get(obj).then(function (res) {
+        if (res.code === '0') {
+          // _this.cardsData = res.data
+          res.data.map(_this.forEac)
+        }
+      })
+    },
+    /**
+     * @Description: 递归获取子集菜单
+     * @Author: WangJiaNan
+     * @Param: {params:obj} 菜单集合
+     * @Date: 2019-06-20 17:28:15
+     */
+    forEac (item) {
+      console.log(item)
+      if (item.childMenu.length > 0) {
+        item.childMenu.map(this.forEac)
+      } else {
+        if (item.name !== '首页') {
+          this.cardsData.push({
+            name: item.name,
+            url: item.url,
+            id: item.id,
+          })
+        }
+      }
+    },
     
   }
 }

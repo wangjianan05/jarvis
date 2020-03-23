@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-16 09:16:45
- * @LastEditTime: 2019-12-03 21:58:37
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-07 13:01:39
+ * @LastEditors  : Please set LastEditors
  */
 /**
  * axios封装
@@ -90,7 +90,7 @@ instance.interceptors.request.use(
     // const tokenStore = store.state.token
     // window.sessionStorage.setItem('token', 'edccf8f598aa019a134cba0fd8e64387')
     const tokenSesstion = window.sessionStorage.getItem('token')
-    tokenSesstion && (config.headers.Authorization = tokenSesstion)
+    tokenSesstion && (config.headers.token = tokenSesstion)
     // console.log('tokenSesstion', tokenSesstion)
     // tokenSesstion && (config.headers.token = tokenSesstion) // 首页侧边栏
     return config
@@ -140,6 +140,7 @@ instance.interceptors.response.use(
       message = tip.LogonFailure
       break
     default: console.log(1111)
+    
       break
   }
   Message.error(message)

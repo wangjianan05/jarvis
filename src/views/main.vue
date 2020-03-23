@@ -2,7 +2,7 @@
  * @Description: 框架页
  * @Author: wangjn
  * @Date: 2019-07-16 15:50:10
- * @LastEditTime: 2019-12-03 21:34:52
+ * @LastEditTime: 2020-02-25 15:48:46
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -10,7 +10,7 @@
     <el-container class="container">
       <el-container>
         <el-header>
-          <img src="../assets/logo.png" class="logo_img">
+          <!-- <img src="../assets/logo.png" class="logo_img"> -->
           <span class="title_line"></span>
           <!-- <label class="title_label">服务配置中心</label> -->
           <i class="iconfont iconshouye" @click="goHome"></i>
@@ -39,7 +39,6 @@
 
         </el-footer>
       </el-container>
-
     </el-container>
     <el-dialog
       title="修改密码"

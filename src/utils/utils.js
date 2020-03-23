@@ -116,6 +116,28 @@ export default {
    */
   handlerDividedCoin (x, y = 1000) {
     return parseInt((x * 1) / y) // 取整数
+  },
+  /**
+   * @description 去除两端空格
+   * @Author      ZLL
+   * @DateTime    2019-08-30 17:31:30
+   * @param       {string}  str:字符串
+   * @return      {number}  返回秒
+   */
+  trimSpace (str) {
+    return str.replace(/(^\s*)|(\s*$)/g, '')
+  },
+    /**
+   * @Description: 判断一个对象中若值为字符串则截取前后空格
+   * @Author: ZLL
+   * @Date: 2019-12-18 09:46:12
+  */
+  removeSpaces (obj) {
+    let that = this
+    return Object.keys(obj).forEach(function (key) {
+      if (typeof (obj[key]) === 'string') {
+        obj[key] = that.trimSpace(obj[key])
+      }
+    })
   }
-
 }

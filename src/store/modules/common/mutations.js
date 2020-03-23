@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-01 09:09:02
- * @LastEditTime: 2019-12-03 21:26:13
- * @LastEditors: Please set LastEditors
+ * @LastEditTime : 2020-01-06 09:06:31
+ * @LastEditors  : Please set LastEditors
  */
 import * as types from './mutation-type'
 
@@ -24,7 +24,7 @@ const mutation = {
         // state.baseUrl = window.location.protocol + '//' + window.location.host + '/api/v1.0'
         break
       case 'development':// 开发环境
-        state.baseUrl = 'http://192.168.31.47:8010/'
+        state.baseUrl = 'http://10.133.232.58:8010/'
         break
       default:
         state.baseUrl = ''

@@ -13,12 +13,13 @@ import environment from './environment'
 import login from './login'
 import service from './service'
 import delMax from './delMax'
-
+import menus from './menus'
 let urlConfig = Object.assign( // 合并对象
   environment,
   login,
   service,
-  delMax
+  delMax,
+  menus
 )
 
 export default urlConfig
